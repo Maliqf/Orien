@@ -85,7 +85,11 @@ confirm($update_movie_query);
             while($row = mysqli_fetch_assoc($select_lang_query)){
                 $lang_id = $row['Language_id'];
                 $lang_name = $row['Language_name'];
-                echo "<option value='$lang_id'>$lang_name</option>";
+                if($e_language === $lang_id){
+                    echo "<option value='$lang_id' selected>$lang_name</option>";
+                }else{
+                    echo "<option value='$lang_id'>$lang_name</option>";
+                }                
             }
             ?>
         </select>
@@ -112,7 +116,11 @@ confirm($update_movie_query);
             while($row = mysqli_fetch_assoc($select_status_query)){
                 $staus_id1 = $row['status_id'];
                 $status_type = $row['status_type'];
-                echo "<option value='$staus_id1'>$status_type</option>";
+                if($e_status_id === $staus_id1){
+                    echo "<option value='$staus_id1' selected>$status_type</option>";
+                }else{
+                    echo "<option value='$staus_id1'>$status_type</option>";
+                } 
             }
             ?>
         </select>

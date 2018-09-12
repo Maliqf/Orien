@@ -49,6 +49,18 @@ if(isset($_GET['delete'])){
                         $image_name = $row['Image_name'];
                         $status_id = $row['status_id'];
 
+                        $query = "Select * FROM language where Language_id='{$language}'";
+                        $select_lang_type = mysqli_query($connection, $query);
+                        while($row1 = $select_lang_type-> fetch_assoc()){
+                            $language = $row1['Language_name'];
+                        }
+
+                        $query = "Select * FROM status where status_id='{$status_id}'";
+                        $select_status = mysqli_query($connection, $query);
+                        while($row1 = $select_status-> fetch_assoc()){
+                            $status_id = $row1['status_type'];
+                        }
+
                         echo "<tr>";
                         echo "<td>$movie_id</td>";
                         echo "<td>$movie_name</td>";

@@ -21,8 +21,8 @@
                 }
 
                 switch($source){
-                    case 'edit_movie':
-                        include "includes/user_movie.php";
+                    case 'edit_user':
+                        include "includes/edit_user.php";
                         break;
                     default:
                         include "includes/all_users.php";

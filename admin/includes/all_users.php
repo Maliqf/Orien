@@ -40,8 +40,8 @@ if(isset($_GET['delete'])){
                     <tbody>
                     <?php
                     $query = "Select * FROM users where user_status_id=1";
-                    $select_all_movies = mysqli_query($connection, $query);
-                    while($row = $select_all_movies-> fetch_assoc()){
+                    $select_all_users = mysqli_query($connection, $query);
+                    while($row = $select_all_users-> fetch_assoc()){
                         $user_id = $row['User_id'];
                         $user_name = $row['User_name'];
                         $email = $row['Email'];
@@ -55,6 +55,12 @@ if(isset($_GET['delete'])){
                         $Profile_pic = $row['Profile_pic'];
                         $user_type_id = $row['user_type_id'];
 
+                        $query = "Select * FROM user_type where user_type_id='{$user_type_id}'";
+                        $select_user_type = mysqli_query($connection, $query);
+                        while($row1 = $select_user_type-> fetch_assoc()){
+                            $user_type_id = $row1['User_type'];
+                        }
+
                         echo "<tr>";
                         echo "<td>$user_id</td>";
                         echo "<td>$user_name</td>";
@@ -66,7 +72,7 @@ if(isset($_GET['delete'])){
                         echo "<td>$Subscription</td>";
                         echo "<td>$Gender</td>";
                         echo "<td>$DOB</td>";
-                        echo "<td><img width='50' height='50' style='border-radius:50%;' src='../images/profile/{$Profile_pic}' alt='{$Profile_pic}'/></td>";
+                        echo "<td align='center'><img width='50' height='50' style='border-radius:50%;' src='../images/profile/{$Profile_pic}' alt='{$Profile_pic}'/></td>";
                         echo "<td>$user_type_id</td>";
                         echo "<td align='center' valign='middle'><a href='users.php?source=edit_user&u_id={$user_id}'><button type='button' class='btn btn-info' name='edit'>Edit</button></a></td>";
                         echo "<td align='center' valign='middle'><a href='users.php?delete={$user_id}'><button type='button' class='btn btn-danger' name='delete'>Delete</button></a></td>";

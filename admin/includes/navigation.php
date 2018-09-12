@@ -16,7 +16,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Orien Cinema Admin</a>
+        <a class="navbar-brand" href="index.html">Orien Cinema</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -44,16 +44,16 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li>
-                <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
                 <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
             </li>
             <li>
-                <a href="category.php"><i class="fa fa-fw fa-table"></i> Category</a>
+                <a href="language.php"><i class="fa fa-fw fa-language"></i> Languages</a>
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#movies"><i class="fa fa-fw fa-arrows-v"></i> Movies <i class="fa fa-fw fa-caret-down"></i></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#movies"><i class="fa fa-fw fa-film"></i> Movies <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="movies" class="collapse">
                     <li>
                         <a href="movies.php">View Movies</a>
@@ -64,28 +64,34 @@
                 </ul>
             </li>
             <li>
-                <a href="users.php"><i class="fa fa-fw fa-wrench"></i> Users</a>
+                <a href="users.php"><i class="fa fa-fw fa-user"></i> Users</a>
             </li>
             <li>
-                <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                <a href="#"><i class="fa fa-fw fa-building"></i> Film Halls</a>
             </li>
             <li>
-                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                <a href="#"><i class="fa fa-fw fa-clock-o"></i> Show Time</a>
             </li>
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                <ul id="demo" class="collapse">
+                <a href="#"><i class="fa fa-fw fa-play"></i> Film Shows</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-wheelchair"></i> Seat Price</a>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#refreshments"><i class="fa fa-fw fa-coffee"></i> Refreshments <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="refreshments" class="collapse">
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <a href="movies.php">View Refreshments</a>
                     </li>
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <a href="movies.php?source=add_movie">Add Items</a>
                     </li>
                 </ul>
             </li>
-            <li class="active">
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-            </li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-money"></i> Manage Bookings</a>
+            </li>            
             <li>
                 <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
             </li>
