@@ -67,10 +67,10 @@
                 <a href="users.php"><i class="fa fa-fw fa-user"></i> Users</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-building"></i> Film Halls</a>
+                <a href="halls.php"><i class="fa fa-fw fa-building"></i> Film Halls</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-clock-o"></i> Show Time</a>
+                <a href="show_times.php"><i class="fa fa-fw fa-clock-o"></i> Show Time</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-fw fa-play"></i> Film Shows</a>

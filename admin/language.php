@@ -52,7 +52,7 @@
                         <input class="form-control" type="text" name="lang_name" />
                     </div>
                     <div class="form-group">
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
+                        <input class="btn btn-primary" type="submit" name="submit" value="Add Language">
                     </div>
                 </form>
                     <?php
