@@ -14,17 +14,19 @@ if(isset($_POST['add_movie'])){
     $release_date = date('Y-m-d', strtotime($_POST['release_date']));
     $language = $_POST['language'];
     $duration = date('H:i:s', strtotime($_POST['duration']));
+    $search_tags = $_POST['search_tags'];
     $trailer_link = $_POST['trailer_link'];
     $image_name = $_POST['image_name'];
     $status = $_POST['status'];
 
-    $query = "INSERT INTO movies(Movie_name,Description,Release_date,Language_id,Duration,Trailer_Link,Image_name,status_id)";
-    $query .= " Values('{$movie_name}', '{$description}', '{$release_date}', {$language}, '{$duration}', '{$trailer_link}', '{$image_name}', {$status})";
+    $query = "INSERT INTO movies(Movie_name,Description,Release_date,Language_id,Duration,Trailer_Link,Image_name,status_id,search_text)";
+    $query .= " Values('{$movie_name}', '{$description}', '{$release_date}', {$language}, '{$duration}', '{$trailer_link}', '{$image_name}', {$status}, {$search_tags})";
 
 
     $create_movie_query = mysqli_query($connection, $query);
 
     confirm($create_movie_query);
+    header("Location: movies.php");
 
 
 }
@@ -38,7 +40,7 @@ if(isset($_POST['add_movie'])){
     </div>
     <div class="form-group">
         <label for="description">Movie Description</label>
-        <input type="text" class="form-control" name="description">
+        <textarea name="description" cols="40" rows="5" class="form-control"></textarea>
     </div>
     <div class="form-group">
         <label for="release_date">Release Date</label>
@@ -63,6 +65,10 @@ if(isset($_POST['add_movie'])){
     <div class="form-group">
         <label for="duration">Duration</label>
         <input type="time" class="form-control" name="duration" min='01:00' max= '03:00'/>
+    </div>
+    <div class="form-group">
+        <label for="search_tags">Search Tags</label>
+        <textarea name="search_tags" cols="40" rows="5" class="form-control"></textarea>
     </div>
     <div class="form-group">
         <label for="trailer_link">Trailer Link</label>

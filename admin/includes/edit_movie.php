@@ -21,6 +21,7 @@ if(isset($_GET['m_id'])){
         $e_release_date = $row['Release_date'];
         $e_language = $row['Language_id'];
         $e_duration = $row['Duration'];
+        $e_search_tags = $row['search_text'];
         $e_trailer_link = $row['Trailer_Link'];
         $e_image_name = $row['Image_name'];
         $e_status_id = $row['status_id'];
@@ -28,14 +29,15 @@ if(isset($_GET['m_id'])){
 
 
 if(isset($_POST['update_movie'])){
-$movie_name = $_POST['movie_name'];
-$description = $_POST['description'];
-$release_date = date('Y-m-d', strtotime($_POST['release_date']));
-$language = $_POST['language'];
-$duration = date('H:i:s', strtotime($_POST['duration']));
-$trailer_link = $_POST['trailer_link'];
-$image_name = $_POST['image_name'];
-$status = $_POST['status'];
+    $movie_name = $_POST['movie_name'];
+    $description = $_POST['description'];
+    $release_date = date('Y-m-d', strtotime($_POST['release_date']));
+    $language = $_POST['language'];
+    $duration = date('H:i:s', strtotime($_POST['duration']));
+    $search_tags = $_POST['search_tags'];
+    $trailer_link = $_POST['trailer_link'];
+    $image_name = $_POST['image_name'];
+    $status = $_POST['status'];
 
     $query = "UPDATE movies SET ";
     $query .= "Movie_name='{$movie_name}', ";
@@ -43,6 +45,7 @@ $status = $_POST['status'];
     $query .="Release_date='{$release_date}',";
     $query .="Language_id='{$language}',";
     $query .="Duration='{$duration}',";
+    $query .="search_text='{$search_tags}',";
     $query .="Trailer_Link='{$trailer_link}',";
     $query .="Image_name='{$image_name}',";
     $query .="status_id='{$status}' ";
@@ -68,7 +71,7 @@ confirm($update_movie_query);
     </div>
     <div class="form-group">
         <label for="description">Movie Description</label>
-        <input type="text" class="form-control" name="description" value="<?php echo $e_description ?>">
+        <textarea name="description" cols="40" rows="5" class="form-control"><?php echo $e_description ?></textarea>
     </div>
     <div class="form-group">
         <label for="release_date">Release Date</label>
@@ -97,6 +100,10 @@ confirm($update_movie_query);
     <div class="form-group">
         <label for="duration">Duration</label>
         <input type="time" class="form-control" name="duration" min='01:00' max= '03:00' value="<?php $d_time = date('H:i', strtotime($e_duration)); echo $d_time; ?>"/>
+    </div>
+    <div class="form-group">
+        <label for="search_tags">Search Tags</label>
+        <textarea name="search_tags" cols="40" rows="5" class="form-control"><?php echo $e_search_tags ?></textarea>
     </div>
     <div class="form-group">
         <label for="trailer_link">Trailer Link</label>

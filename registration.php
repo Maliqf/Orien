@@ -6,8 +6,11 @@
 
 <?php
 
+if(isset($_SESSION['user_role'])){
+    header("Location: index.php");
+}
+
 if(isset($_POST['submit'])){
-    echo "Working";
     $user_name = strtolower($_POST['username']);
     $email = strtolower($_POST['email']);
     $phone = $_POST['phone'];
@@ -17,6 +20,16 @@ if(isset($_POST['submit'])){
     if($gender=='Female'){
         $profile_pic = "default_female.jpg";
     }
+
+    $query = "Select * FROM users where Email='{$email}'";
+    $select_all_email = mysqli_query($connection, $query);
+
+    confirm($select_all_email);
+    $row = mysqli_fetch_array($select_all_email);
+
+    if ($row['Email'] === $email){
+        echo "Email already exist !";
+    }else{
 
     if(!empty($user_name) && !empty($email) && !empty($phone) && !empty($password)){
 
@@ -45,7 +58,7 @@ if(isset($_POST['submit'])){
         confirm($create_user_query);
 
     }
-
+    }
 
 }
 

@@ -27,6 +27,7 @@ if(isset($_GET['delete'])){
                         <th>Release Date</th>
                         <th>Language</th>
                         <th>Duration</th>
+                        <th>Search Tags</th>
                         <th>Trailer Link</th>
                         <th>Image</th>
                         <th>Status</th>
@@ -45,6 +46,7 @@ if(isset($_GET['delete'])){
                         $release_date = $row['Release_date'];
                         $language = $row['Language_id'];
                         $duration = $row['Duration'];
+                        $search_tags = $row['search_text'];
                         $trailer_link = $row['Trailer_Link'];
                         $image_name = $row['Image_name'];
                         $status_id = $row['status_id'];
@@ -68,7 +70,8 @@ if(isset($_GET['delete'])){
                         echo "<td>$release_date</td>";
                         echo "<td>$language</td>";
                         echo "<td>$duration</td>";
-                        echo "<td><a href='{$trailer_link}' target='_blank'>$trailer_link</a></td>";
+                        echo "<td>$search_tags</td>";
+                        echo "<td><a href='{$trailer_link}' target='_blank'>Watch Trailer</a></td>";
                         echo "<td><img width='100' src='../images/thumb/{$image_name}' alt='{$image_name}'/><br/><br/><img width='100' src='../images/cover/{$image_name}' alt='{$image_name}'/></td>";
                         echo "<td>$status_id</td>";
                         echo "<td align='center' valign='middle'><a href='movies.php?source=edit_movie&m_id={$movie_id}'><button type='button' class='btn btn-info' name='edit'>Edit</button></a></td>";

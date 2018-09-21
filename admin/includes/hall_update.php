@@ -17,11 +17,13 @@
             $edit_hall_id = $_GET['edit'];
             $e_hall_name = "";
             $e_no_seats = "";
+            $e_seat_price = "";
             $query = "Select * from halls where Hall_id ={$edit_hall_id}";
             $edit_chk_query = mysqli_query($connection, $query);
             while($row = $edit_chk_query-> fetch_assoc()){
                             $e_hall_name = $row['Hall_name'];
                             $e_no_seats = $row['No_of_seats'];
+                            $e_seat_price = $row['seat_price'];
                         }
             ?>
             <div class="form-group">
@@ -32,6 +34,10 @@
             <label for="no_seats">Hall Number</label>
             <input value="<?php if(isset($edit_hall_id)){echo $e_no_seats;} ?>" type="number" class="form-control" name="no_seats"/>
             </div>
+            <div class="form-group">
+            <label for="seat_price">Ticket Price</label>
+            <input value="<?php if(isset($e_seat_price)){echo $e_seat_price;} ?>" type="number" class="form-control" name="seat_price"/>
+            </div>
 
             <?php
         }
@@ -41,7 +47,8 @@
         if(isset($_POST['update_hall'])){
             $edit_hall_name = $_POST['hall_name'];
             $edit_no_seats = $_POST['no_seats'];
-            $query = "Update halls SET Hall_name='{$edit_hall_name}', No_of_seats='{$edit_no_seats}' where hall_id ='{$edit_hall_id}'";
+            $seat_price = $_POST['seat_price'];
+            $query = "Update halls SET Hall_name='{$edit_hall_name}', No_of_seats='{$edit_no_seats}', seat_price='{$seat_price}' where hall_id ='{$edit_hall_id}'";
             $edit_query = mysqli_query($connection, $query);
             if(!$edit_query){
                 die('Query Failed' . mysqli_error($connection));

@@ -13,9 +13,47 @@
 
 
 <!--Footer Start -->
-<footer style="display: block;">
+<footer style="display: block;">      
+
+              <!-- Supplimentary action start here -->
+    <div class="sup-action">
+      <div class="sup-wrapper">
+        <a class="col sup-action-container" href="https://support.bookmyshow.com/support/home?regionCode=CHEN">
+          <div class="__sup-icon">
+            <span>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                <use xlink:href="icons/common-icons.svg#icon-callcenter"></use>
+              </svg>
+            </span><br>
+            <p class="__text">24/7 CUSTOMER CARE</p>
+          </div>
+        </a>
+        <div class="col sup-action-container" data-modal="resendCofirmationPopup">
+          <div class="__sup-icon">
+            <span>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                <use xlink:href="icons/common-icons.svg#icon-resend"></use>
+              </svg>
+            </span><br>
+            <p class="__text">RESEND BOOKING CONFIRMATION</p>
+          </div>
+        </div>
+        <div class="col sup-action-container" data-modal="subscribeNewsletters">
+          <div class="__sup-icon">
+            <span>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                <use xlink:href="icons/common-icons.svg#icon-newsletter"></use>
+              </svg>
+            </span><br>
+            <p class="__text">SUBSCRIBE TO THE NEWSLETTER</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Supplimentary action Ends here -->
         <!-- Footer links -->
-	<div class="footer-container">
+    <div class="footer-container">
 	
 		<div class="new-footer-links">
 		<div class="wrapper">

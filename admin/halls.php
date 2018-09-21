@@ -36,8 +36,8 @@
                             <th>ID</th>
                             <th>Hall Name</th>
                             <th>No of Seats</th>
+                            <th>Ticket Price</th>
                             <th/>
-                        </tr>
                         </tr>
                         </thead>
                         <tbody>
@@ -48,11 +48,13 @@
                         while($row = $select_all_halls-> fetch_assoc()){
                             $hall_id = $row['Hall_id'];
                             $hall_name = $row['Hall_name'];
-                            $No_seats =  $row['No_of_seats'];                           
+                            $No_seats =  $row['No_of_seats'];
+                            $seat_price = $row['seat_price'];
                             echo "<tr>";
                             echo "<td>{$hall_id}</td>";
                             echo "<td>{$hall_name}</td>";
                             echo "<td>{$No_seats}</td>";
+                            echo "<td>{$seat_price}</td>";
                             echo "<td><a href='halls.php?edit={$hall_id}'><button type='button' class='btn btn-info' name='edit'>Edit</button></a></td>";
                             echo "</tr>";
                         }

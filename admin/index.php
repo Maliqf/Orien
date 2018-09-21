@@ -11,17 +11,12 @@
                         <h1 class="page-header">
                             Welcome to Admin Orien Cinema
                             <small>
-                                <?php echo $_SESSION['user_name']?>
+                                <?php echo ucfirst($_SESSION['user_name']);?>
                             </small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                        <?php
+                        include "includes/dahsboard.php";
+                        ?>
                     </div>
                 </div>
                 <!-- /.row -->

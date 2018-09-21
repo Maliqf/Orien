@@ -20,16 +20,15 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <li><a href="../index.php">Home</a> </li>
+        <li><a href="../index.php"><i class="fa fa-fw fa-home"></i> Home</a></li>
 
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo ucfirst($_SESSION['user_name']);?> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="../images/profile/mq.jpg" width="30" height="30" style="border-radius: 50%"/>
+            <!--<i class="fa fa-user">--></i> <?php echo ucfirst($_SESSION['user_name']);?> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
                     <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -45,9 +44,6 @@
         <ul class="nav navbar-nav side-nav">
             <li>
                 <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
             </li>
             <li>
                 <a href="language.php"><i class="fa fa-fw fa-language"></i> Languages</a>
@@ -73,27 +69,35 @@
                 <a href="show_times.php"><i class="fa fa-fw fa-clock-o"></i> Show Time</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-play"></i> Film Shows</a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#shows"><i class="fa fa-fw fa-play"></i> Film Shows <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="shows" class="collapse">
+                    <li>
+                        <a href="shows.php">View Shows</a>
+                    </li>
+                    <li>
+                        <a href="shows.php?source=add_show">Add Shows</a>
+                    </li>
+                </ul>
             </li>
-            <li>
+            <!--<li>
                 <a href="#"><i class="fa fa-fw fa-wheelchair"></i> Seat Price</a>
-            </li>
+            </li>-->
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#refreshments"><i class="fa fa-fw fa-coffee"></i> Refreshments <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="refreshments" class="collapse">
                     <li>
-                        <a href="movies.php">View Refreshments</a>
+                        <a href="refreshments.php?source=refreshment_orders">View Orders</a>
                     </li>
                     <li>
-                        <a href="movies.php?source=add_movie">Add Items</a>
+                        <a href="refreshments.php">View Refreshments</a>
+                    </li>
+                    <li>
+                        <a href="refreshments.php?source=add_refreshment">Add Items</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-money"></i> Manage Bookings</a>
-            </li>            
-            <li>
-                <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                <a href="bookings.php"><i class="fa fa-fw fa-money"></i> Manage Bookings</a>
             </li>
         </ul>
     </div>

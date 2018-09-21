@@ -11,6 +11,7 @@ if(isset($_POST['submit'])){
 
     $hall_name = trim($_POST["hall_name"]);
     $NoSeats = trim($_POST["NoSeats"]);
+    $Seat_price = trim($_POST["Seat_price"]);
 
     if($hall_name == "" || empty($hall_name)){
         echo "Hall Name field is empty";
@@ -23,8 +24,8 @@ if(isset($_POST['submit'])){
         }
         else{
 
-        $in_query = "INSERT into halls(Hall_name, No_of_seats) ";
-        $in_query .= "VALUE('{$hall_name}', '{$NoSeats}')";                            
+        $in_query = "INSERT into halls(Hall_name, No_of_seats, seat_price) ";
+        $in_query .= "VALUE('{$hall_name}', '{$NoSeats}'), '{$Seat_price}'";
 
         $create_category_query = mysqli_query($connection, $in_query);
         if(!$create_category_query){
@@ -48,6 +49,10 @@ if(isset($_POST['submit'])){
     <div class="form-group">
         <label for="NoSeats">No of Seats</label>
         <input class="form-control" type="number" name="NoSeats" />
+    </div>
+    <div class="form-group">
+        <label for="Seat_price">Ticket Price</label>
+        <input class="form-control" type="number" name="Seat_price" />
     </div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" name="submit" value="Add Hall">

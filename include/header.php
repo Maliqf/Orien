@@ -12,10 +12,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/mystyle.css?<?php echo time(); ?>">
-	<script src="jquery-3.3.1.min.js"></script>
-	<link href="css/bootstrap.min.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css?<?php echo time(); ?>">
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css?<?php echo time(); ?>">
+	<link href="css/bootstrap.min.css?<?php echo time(); ?>" rel="stylesheet"/>
+    
+	<script src="jquery-3.3.1.min.js?<?php echo time(); ?>"></script>
+	<script src="js/slick.js?<?php echo time(); ?>"></script>
+	
+	<title>Orien Cinema</title>
 </head>
 <body>
 <div class="main-body-wrapper ">
@@ -29,9 +33,7 @@
                 </div>
             </div>
             <div class="header-col header-cal-2">
-                <div class="search-section"><span class="__icon search-icon"><img id="search_icon" src="assets/Search.jpg"  height="15" width="15"/></span>
-                    <input type="text" class="search-box typeahead" placeholder="Search for Movies" id="input-search-box" onfocus=""/>
-                </div>
+                <?php include "search.php"?>
                 <div class="primary-nav">
                     <div class="inner-nav left-nav">
                         <ul>
@@ -44,7 +46,7 @@
                             $status_id = $row['status_id'];
                             if($status_id==1)
                             {
-                                echo "<li class='primary-menu __active'><a href='#' class='nav-link'>{$status_title}</a></li>";
+                                echo "<li class='primary-menu __active'><a href='index.php' class='nav-link'>{$status_title}</a></li>";
                             }
                             else {
                                 echo "<li class='primary-menu'><a href='#' class='nav-link'>{$status_title}</a></li>";
@@ -91,7 +93,15 @@
 				</div>
 			</div>
 			</div>";
-			}?>
+			}else{
+			echo "
+			<div class='header-col header-cal-3'>
+			<a href='registration.php'><input class='btn btn-primary' type='submit' value='Signup'></a>
+			</div>
+			";
+			}
+			
+			?>
         </div>
 		</nav>
 </header>

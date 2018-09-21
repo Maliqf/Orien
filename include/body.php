@@ -24,28 +24,21 @@
                                         </div>
                                         <div class="filter-list">
                                             <ul class="language __filter-list">
+                                                <?php
+                                                $query = "Select * FROM language";
+                                                $select_all_lang = mysqli_query($connection, $query);
 
-                                                <li class="__filter">
-<span class="__checkbox">
-<input type="checkbox" value="Tamil" id="tamil" class="tick"> <span class="checkbox-label"><a class="_anchor-filter" href="">Tamil</a></span>
-</span>
-                                                </li> <li class="__filter">
-<span class="__checkbox">
-<input type="checkbox" value="English" id="english"  class="tick"> <span class="checkbox-label"><a class="_anchor-filter" href="">English</a></span>
-</span>
-                                                </li> <li class="__filter">
-<span class="__checkbox">
-<input type="checkbox" value="Telugu" id="telungu" class="tick"> <span class="checkbox-label"><a class="_anchor-filter" href="">Telugu</a></span>
-</span>
-                                                </li> <li class="__filter">
-<span class="__checkbox">
-<input type="checkbox" value="Hindi"> <span class="checkbox-label"><a class="_anchor-filter" href="">Hindi</a></span>
-</span>
-                                                </li> <li class="__filter">
-<span class="__checkbox">
-<input type="checkbox" value="Kannada"> <span class="checkbox-label"><a class="_anchor-filter" href="">Kannada</a></span>
-</span>
-                                                </li>
+                                                while($row = $select_all_lang-> fetch_assoc()){
+                                                    $lang_name = $row['Language_name'];
+                                                    $lang_id = $row['Language_id'];
+                                                    echo "<li class='__filter'>
+                                                    <span class='__checkbox'>
+                                                    <input type='checkbox' value='{$lang_name}' id='{$lang_name}' class='tick'> <span class='checkbox-label'><a class='_anchor-filter' href=''>{$lang_name}</a></span>
+                                                    </span>
+                                                    </li>
+                                                    ";
+                                                }
+                                                ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -62,19 +55,7 @@
 <span data-filter="action" class="__checkbox">
 <input type="checkbox" value="Action"> <span class="checkbox-label"><a class="_anchor-filter" href="">Action</a></span>
 </span>
-                                                </li><li class="__filter">
-<span data-filter="adventure" class="__checkbox">
-<input type="checkbox" value="Adventure"> <span class="checkbox-label"><a class="_anchor-filter" href="">Adventure</a></span>
-</span>
-                                                </li><li class="__filter">
-<span data-filter="animation" class="__checkbox">
-<input type="checkbox" value="Animation"> <span class="checkbox-label"><a class="_anchor-filter" href="">Animation</a></span>
-</span>
-                                                </li><li class="__filter">
-<span data-filter="biography" class="__checkbox">
-<input type="checkbox" value="Biography"> <span class="checkbox-label"><a class="_anchor-filter" href="">Biography</a></span>
-</span>
-                                                </li>															<!-- <span class="__more-filters"> + More</span> -->
+                                                </li>													<!-- <span class="__more-filters"> + More</span> -->
                                             </ul>
                                         </div>
                                     </div>
@@ -87,121 +68,59 @@
                                     <div class="cards-list">
                                         <div class="__col-now-showing">
                                             <div class="mv-row">
-                                                <div class="card-container wow fadeIn movie-card-container movie-tamil" data-selector="movies" data-search-filter="movies-Imaikkaa-Nodigal" data-filter="|Tamil|Romance|Thriller|2D" data-language-filter="|Tamil" data-genre-filter="|Romance|Thriller" data-dimension-filter="|2D" style="visibility: visible; animation-name: fadeIn;">
-                                                    <div class="cards">
-                                                        <div class="card-img">
-                                                            <img class="__poster __animated" src="images/thumb/01.jpg" alt="Imaikkaa Nodigal"/>
-                                                        </div>
-                                                        <div class="card-details lang-eng">
-                                                            <div class="card-left">
-                                                                <div class="popularity sa-data-plugin" data-event-group="EG00029395" data-event-code="ET00047631" data-coming-soon="false">
-                                                                    <div class="__likes">
-                                                                        <div class="__icon __heart">
-                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><use xlink:href="/icons/movies-icons.svg#icon-heart"></use>
-</svg>
-                                                                        </div>
-                                                                        <div class="__icon __thumbs _none">
-                                                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><use xlink:href="/icons/movies-icons.svg#icon-like"></use>
-</svg>
-                                                                        </div>
-                                                                        <div class="__percentage">84%</div>
-                                                                    </div>
-                                                                    <div class="__votes">
-                                                                        <div class="__count">9,539 votes</div>
-                                                                    </div>
+
+                                                <?php
+                                                $query = "Select * FROM movies where status_id='1'";
+                                                $select_all_movie = mysqli_query($connection, $query);
+
+                                                while($row = $select_all_movie-> fetch_assoc()){
+                                                    $movie_name = $row['Movie_name'];
+                                                    $movie_id = $row['Movie_id'];
+                                                    $m_lang = $row['Language_id'];
+                                                    $m_img_name = $row['Image_name'];
+
+                                                $query = "Select * FROM language where language_id='{$m_lang}'";
+                                                $select_all_lang = mysqli_query($connection, $query);
+
+                                                while($row1 = $select_all_lang-> fetch_assoc()) {
+                                                    $m_lang_name = $row1['Language_name'];
+                                                }
+
+
+                                                    echo "
+                                                    <div class='card-container wow fadeIn movie-card-container movie-tamil' data-language-filter='|{$m_lang_name}' data-genre-filter='|Romance|Thriller' style='visibility: visible; animation-name: fadeIn;'>
+                                                    <div class='cards'>
+                                                        <div class='card-img'>";
+                                                        if(file_exists("images/thumb/{$m_img_name}")){
+                                                            echo "<img class='__poster __animated' src='images/thumb/{$m_img_name}' alt='{$movie_name}'/>";
+                                                        }else{
+                                                            echo "<img class='__poster __animated' src='images/thumb/default.jpg' alt='{$movie_name}'/>";
+                                                        }
+
+
+
+                                                        echo "</div>
+                                                        <div class='card-details lang-eng'>
+                                                            <div class='card-left'>
+                                                                <div class='popularity sa-data-plugin' data-event-group='EG00029395' data-event-code='ET00047631' data-coming-soon='false'>
+
                                                                 </div>
                                                             </div>
-                                                            <div class="card-right">
-                                                                <div class="card-title">
-                                                                    <h4>Imaikkaa Nodigal</h4>
+                                                            <div class='card-right'>
+                                                                <div class='card-title'>
+                                                                    <h4>{$movie_name}</h4>
                                                                 </div>
-                                                                <div class="card-tag">
-                                                                    <span><span class="censor">UA |</span> <li class="__language">Tamil</li></span>
+                                                                <div class='card-tag'>
+                                                                    <span><li class='__language'>{$m_lang_name}</li></span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="card-container wow fadeIn movie-card-container  movie-tamil" data-selector="movies" data-search-filter="movies-Kolamaavu-Kokila" data-filter="|Tamil|Action|Black-/-Dark-Comedy|Thriller|2D" data-language-filter="|Tamil" data-genre-filter="|Action|Black-/-Dark-Comedy|Thriller" data-dimension-filter="|2D" style="visibility: visible; animation-name: fadeIn;">
-                                                    <a href="/chennai/movies/kolamaavu-kokila/ET00071635" title="Kolamaavu Kokila">
-                                                        <div class="cards">
-                                                            <div class="card-img">
-                                                                <img class="__poster __animated" src="images/thumb/KolamaavuKokila.jpg" alt="Kolamaavu Kokila"/>
-                                                            </div>
-                                                            <div class="card-details lang-eng">
-                                                                <div class="card-left">
-                                                                    <div class="popularity sa-data-plugin">
-                                                                        <div class="__likes">
-                                                                            <div class="__icon __heart">
-                                                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><use xlink:href="/icons/movies-icons.svg#icon-heart"></use>
-</svg>
-                                                                            </div>
-                                                                            <div class="__icon __thumbs _none">
-                                                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><use xlink:href="/icons/movies-icons.svg#icon-like"></use>
-</svg>
-                                                                            </div>
-                                                                            <div class="__percentage">83%</div>
-                                                                        </div>
-                                                                        <div class="__votes">
-                                                                            <div class="__count">25,791 votes</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-right">
-                                                                    <div class="card-title">
-                                                                        <h4>Kolamaavu Kokila</h4>
-                                                                    </div>
-                                                                    <div class="card-tag">
-                                                                        <span><span class="censor">UA |</span> <li class="__language">Tamil</li></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="card-container wow fadeIn movie-card-container  movie-english" data-selector="movies" data-search-filter="movies-Geetha-Govindam" data-filter="|Telugu|Comedy|Romance|2D" data-language-filter="|Telugu" data-genre-filter="|Comedy|Romance" data-dimension-filter="|2D" style="visibility: visible; animation-name: fadeIn;">
-                                                    <a href="/chennai/movies/geetha-govindam/ET00078428" title="Geetha Govindam">
-                                                        <div class="cards">
-                                                            <div class="card-img">
-                                                                <img class="__poster __animated" src="images/thumb/03.jpg" alt="Geetha Govindam"/>
-                                                                <img class="__poster __animate" src="//in.bmscdn.com/events/mobile/vertical-noimg.png">
-                                                                <div class="__flag __exclusive ">
-                                                                    <span class="badge">Exclusive</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-details lang-eng">
-                                                                <div class="card-left">
-                                                                    <div class="popularity sa-data-plugin" data-event-group="EG00058088" data-event-code="ET00078428" data-coming-soon="false">
-                                                                        <div class="__likes">
-                                                                            <div class="__icon __heart">
-                                                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><use xlink:href="/icons/movies-icons.svg#icon-heart"></use>
-</svg>
-                                                                            </div>
-                                                                            <div class="__icon __thumbs _none">
-                                                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><use xlink:href="/icons/movies-icons.svg#icon-like"></use>
-</svg>
-                                                                            </div>
-                                                                            <div class="__percentage">86%</div>
-                                                                        </div>
-                                                                        <div class="__votes">
-                                                                            <div class="__count">162,957 votes</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-right">
-                                                                    <div class="card-title">
-                                                                        <h4>Geetha Govindam</h4>
-                                                                    </div>
-                                                                    <div class="card-tag">
-                                                                        <span><span class="censor">UA |</span> <li class="__language">Telugu</li></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-
+                                                    </div>
+                                                    ";
+                                                }
+                                                ?>
 
 
                                             </div>
